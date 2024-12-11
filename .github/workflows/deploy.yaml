@@ -24,14 +24,9 @@ jobs:
       - name: Run Build Script
         run: bun run build
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "WiLuX-Source"
-          git config --global user.email "61833703+WiLuX-Source@users.noreply.github.com"
-
       - name: Deploy with gh-pages
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          bun run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          bun run deploy -- -u "GitHub Action <action@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
