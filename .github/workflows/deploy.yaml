@@ -28,7 +28,7 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.email "61833703+${{ github.actor }}@users.noreply.github.com"
           bun run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
