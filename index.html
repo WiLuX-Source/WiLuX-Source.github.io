@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilux - William Knux</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        * {
+            font-family: "Inter", "sans-serif";
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-neutral-200 dark:bg-slate-800">
+    <div onclick="toggleTheme()">
+        <i id="themer" class="text-zinc-400 hover:text-zinc-600 dark:text-gray-600 dark:hover:text-gray-400 transition-colors duration-100 ease-in fa-solid fa-sun text-4xl absolute top-4 right-4 cursor-pointer"></i>
+    </div>
+    <div class="flex flex-col justify-center items-center h-screen gap-y-4">
+        <div class="flex flex-row gap-x-2 items-center">
+            <a href="https://github.com/WiLuX-Source">
+                <div class="rounded-full overflow-hidden shadow-lg border-4 transition-colors ease-in duration-100 border-zinc-200 hover:border-zinc-400 dark:border-gray-700 dark:hover:border-gray-500">
+                    <img class="w-full h-full object-cover" src="https://avatars.githubusercontent.com/u/61833703?v=4&size=70">
+                </div>
+            </a>
+            <div class="bg-zinc-200 dark:bg-gray-700 shadow-lg rounded-lg p-4 flex flex-col gap-0">
+                <span class="dark:text-slate-100 text-neutral-500">Wilux</span>
+                <span class="dark:text-slate-200 text-neutral-600">Curious Developer</span>
+            </div>
+        </div>
+        <div class="flex flex-row gap-x-4 items-center">
+            <a href="https://github.com/WiLuX-Source">
+                <i class="transition-colors duration-100 text-zinc-400 hover:text-zinc-600 dark:text-gray-600 dark:hover:text-gray-400 ease-in fa-brands fa-github text-4xl"></i>
+            </a>
+            <a href="https://discord.gg/BvT98xY2rr">
+                <i class="transition-colors duration-100 text-zinc-400 hover:text-zinc-600 dark:text-gray-600 dark:hover:text-gray-400 ease-in fa-brands fa-discord text-3xl"></i>
+            </a>
+            <a href="mailto:williamknux.a8h1z@simplelogin.co">
+                <i class="transition-colors duration-100 text-zinc-400 hover:text-zinc-600 dark:text-gray-600 dark:hover:text-gray-400 ease-in fa-solid fa-envelope text-3xl"></i>
+            </a>
+        </div>
+    </div>
+    <script>
+        const themer = document.querySelector("#themer");
+        function setTheme() {
+            if (localStorage.theme === undefined) {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    localStorage.theme = "dark";
+                } else {
+                    localStorage.theme = "light";
+                }
+            }
+            document.documentElement.classList.toggle("dark", localStorage.theme === "dark");
+        }
+
+        function toggleTheme() {
+            if (localStorage.theme === "dark") {
+                localStorage.theme = "light";
+            } else {
+                localStorage.theme = "dark";
+            }
+            setTheme();
+        }
+        setTheme();
+    </script>
+</body>
+</html>
