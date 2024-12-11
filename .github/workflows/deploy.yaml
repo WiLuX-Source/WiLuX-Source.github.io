@@ -8,19 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
+
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 2: Install Bun
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2.0.1
 
-      # Step 3: Install dependencies with Bun
+
       - name: Install Dependencies
         run: bun install --production
 
-      # Step 4: Run the build script using Bun
+
       - name: Run Build Script
         run: bun run build
 
@@ -29,7 +29,9 @@ jobs:
           git config --global user.name "WiLuX-Source"
           git config --global user.email "61833703+WiLuX-Source@users.noreply.github.com"
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy with gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          bun run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bun run deploy
