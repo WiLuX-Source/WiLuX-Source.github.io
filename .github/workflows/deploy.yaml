@@ -24,11 +24,12 @@ jobs:
       - name: Run Build Script
         run: bun run build
 
-      # Step 5: Deploy to GitHub Pages using Bun
-      - name: Deploy to GitHub Pages
+      - name: Configure Git
         run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "61833703+${{ github.actor }}@users.noreply.github.com"
-          bun run deploy
+          git config --global user.name "WiLuX-Source"
+          git config --global user.email "61833703+WiLuX-Source@users.noreply.github.com"
+
+      - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bun run deploy
