@@ -27,8 +27,8 @@ jobs:
       # Step 5: Deploy to GitHub Pages using Bun
       - name: Deploy to GitHub Pages
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           bun run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
